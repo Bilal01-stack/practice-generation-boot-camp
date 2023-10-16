@@ -1,0 +1,313 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+/* Add header */
+header {
+  background-color: #6464649e;
+  display: flex;
+  color: white;
+}
+header img {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+nav {
+  width: 75%;
+  padding-top: 20px;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+
+  justify-content: center;
+}
+nav ul li {
+  padding: 20px 30px;
+  font-size: 25px;
+  padding: 20px 30px;
+  font-weight: bold;
+  transition: 2s;
+}
+nav ul a {
+  text-decoration: none;
+  color: white;
+}
+nav ul li:hover {
+  border-bottom: solid 2px red;
+}
+/* end header */
+main {
+  background-image: url("./new.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+}
+main h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 80px;
+}
+.sec-section {
+  padding-top: 120px;
+
+  justify-content: center;
+  display: flex;
+  background-color: #f2f1f1;
+}
+.sec-section img {
+  width: 70%;
+}
+.sec-five {
+  column-gap: 8%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 100px 70px 100px 70px;
+  background-color: #f2f1f1;
+}
+.heading {
+  width: 52%;
+}
+.first-sec {
+  display: flex;
+  padding: 10px;
+}
+.first-sec img {
+  padding-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+.con {
+  display: inline-block;
+}
+.con p {
+  width: 250px;
+}
+.first {
+  display: block;
+}
+.sr-heading {
+  font-size: 50px;
+  color: black;
+  text-align: center;
+  padding: 60px 0px 30px 0px;
+}
+.team {
+  display: flex;
+  column-gap: 30px;
+  justify-content: space-around;
+  padding: 10px 50px 80px 50px;
+}
+.team img {
+  width: 600px;
+  object-fit: cover;
+}
+.team-one h2 {
+  color: #fa471c;
+  text-align: center;
+  width: 80%;
+  font-size: 45px;
+  padding: 30px 0px 15px 0px;
+}
+.team-one p {
+  text-align: center;
+  width: 80%;
+}
+.team-two h2 {
+  color: #fa471c;
+  text-align: center;
+  width: 80%;
+  font-size: 45px;
+  padding: 30px 0px 15px 0px;
+}
+.team-two p {
+  text-align: center;
+  width: 80%;
+}
+.input {
+  padding-top: 30px;
+}
+.mail {
+  text-align: center;
+  background-color: #fa471c;
+  color: white;
+  padding: 90px 0px;
+}
+button {
+  padding: 12px 50px;
+  background-color: white;
+  border: none;
+  color: #fa471c;
+  font-weight: bold;
+  margin-left: 35px;
+}
+input[type="text"] {
+  padding: 10px 90px;
+} /* Footer style */
+footer {
+  background-color: #1b1a18;
+  height: 200px;
+  padding: 50px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.menu {
+  display: grid;
+  row-gap: 10px;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+.menu a h4:hover {
+  border-bottom: #fa471c solid 3px;
+  color: #fa471c;
+}
+.fa {
+  padding: 12px;
+  font-size: 60px;
+
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #1b1a18;
+  color: white;
+}
+.fa-linkedin {
+  background: #1b1a18;
+  color: white;
+}
+
+.fa-youtube {
+  background: #1b1a18;
+  color: white;
+}
+
+.fa-instagram {
+  background: #1b1a18;
+  color: white;
+}
+.extra {
+  width: 30%;
+  color: white;
+}
+@media only screen and (max-width: 600px) {
+  header img {
+    width: 64%;
+    padding-left: 13px;
+    padding-top: 15px;
+  }
+  nav ul li {
+    display: inline;
+    font-size: 16px;
+    padding: 0px 5px;
+    transition: 1s;
+  }
+  main {
+    background-size: auto;
+    height: 306px;
+  }
+  main h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 33px;
+  }
+  .sec-five {
+    flex-direction: column;
+    padding: 30px 20px 30px 20px;
+  }
+  .heading {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  .team {
+    flex-direction: column;
+    display: flex;
+    padding: 0px;
+  }
+  .team img {
+    width: 100%;
+  }
+  .team-one h2 {
+    color: #fa471c;
+    text-align: center;
+    width: 100%;
+
+    font-size: 35px;
+    padding: 30px 0px 15px 0px;
+  }
+  .team-one p {
+    text-align: center;
+    padding: 2px 30px 30px 30px;
+  }
+  .team-two h2 {
+    color: #fa471c;
+    text-align: center;
+    width: 100%;
+
+    font-size: 35px;
+    padding: 30px 0px 15px 0px;
+  }
+  .team-two p {
+    text-align: center;
+    padding: 2px 30px 30px 30px;
+  }
+  button {
+    font-size: 25px;
+    padding: 12px 50px;
+    background-color: white;
+    border: none;
+    color: #fa471c;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .mail h1 {
+    font-size: 25px;
+  }
+  .sec-section {
+    padding-top: 32px;
+  }
+  .sec-section img {
+    width: 90%;
+  }
+  .sr-heading {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+  }
+
+  /* Footer */
+
+  footer {
+    background-color: #1b1a18;
+    height: 600px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .extra {
+    width: 100%;
+  }
+  /* Footer */
+}
