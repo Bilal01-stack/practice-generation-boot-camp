@@ -1,7 +1,7 @@
 const mongoose=require("mongoose")
 
 
-const Url="mongodb+srv://zubairrajpoot4241:U2dgBfsbYiA5KZ8@cluster0.ruq50qd.mongodb.net/"
+const Url="mongodb+srv://muhammadbilal:j55WKMdqX7yc5ByU@cluster0.qudj8ek.mongodb.net/"
 mongoose.connect(Url,{
     useNewUrlParser:true,
     useUnifiedTopology:true
