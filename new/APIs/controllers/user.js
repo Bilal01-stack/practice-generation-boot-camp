@@ -75,17 +75,28 @@ const signup= async(req,res)=>{
 
 const signin = async(req,res)=>{
   try{
-const {email,password} = res.body
+const {email,password} = req.body
+const user =await  Todo.findOne({email})
+if(user && await bcrypt.compare(password, user.password)){
+  const token = jwt.sign({userId:user.id},process.env.PRIVATE_KEY, {expiresIn:"1hr"})
+  res.status(200).json({  token: token });
+}else{
+  res.status(401).json({error:"invalid credentials"})
+}
   }catch(error){
-    res.status(400).json({message:error.message})
+    res.status(500).json({message:error.message})
     const user = await Todo.findOne(email)
   }
 }
+
+
+
 module.exports = {
   createData,
   getAlldata,
   getById,
   updateById,
   deleteById,
-  signup
+  signup,
+  signin
 };
