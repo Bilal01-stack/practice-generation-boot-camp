@@ -1,15 +1,15 @@
-const mongoose =  require ('mogoose')
-const quantity = new mongoose.schema({
-    prodyctId:{
+const mongoose =  require ('mongoose')
+const quantity = new mongoose.Schema({
+    productId:{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'Product',
-        require:true
+        required:true
     },
-    vlaue:{
+    value:{
         type: Number,
-        require:true
+        required:true
     },
 })
 
-const Qunatity = mongoose.model('Quantity', quantity)
-module.exports = Qunatity
+const Quantity = mongoose.model('Quantity', quantity)
+module.exports = Quantity
