@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const ApiFeatures = require("../utils/apifeatures");
 
 const addProduct = async (req, res) => {
   try {
@@ -35,8 +36,14 @@ const addProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const getallproducts = await Product.find();
-    res.json(getallproducts);
+    const resultPerPage = 5;
+    const productCount = await Product.countDocuments()
+    const apiFeature = new ApiFeatures(Product.find(), req.query)
+      .search()
+      .filter()
+      .pagination(resultPerPage);
+    const getallproducts = await apiFeature.query;
+    res.json(getallproducts,productCount);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -72,8 +79,6 @@ const deleteProductById = async (req, res, next) => {
     next(error);
   }
 };
-
-
 
 module.exports = {
   addProduct,

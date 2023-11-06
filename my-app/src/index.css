@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.contanier{
+    margin: 10px;
+}
+
+.header{
+    margin: 10px;
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.nav-items > ul {
+    display: flex;
+}
+.nav-items > ul>li {
+    padding: 10px;
+}
+.logo{
+    width:100px
+}
+.card{
+    margin: 20px;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    border: solid 1px black;
+}
+.card > img {
+    width: 198px !important;
+}
