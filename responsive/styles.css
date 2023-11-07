@@ -1,0 +1,259 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+header {
+  display: flex;
+  color: white;
+}
+header img {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+nav {
+  width: 75%;
+  padding-top: 20px;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+
+  justify-content: center;
+}
+nav ul li {
+  padding: 20px 30px;
+  font-size: 25px;
+  padding: 20px 30px;
+  font-weight: bold;
+  transition: 2s;
+}
+nav ul li:hover {
+  border-bottom: solid 2px red;
+}
+main {
+  background-image: url(./run.webp);
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -130px;
+  color: white;
+}
+main h1 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 55px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 80px 40px 60px 40px;
+  align-items: center;
+  background-color: #f2f1f1;
+}
+.side-bar {
+  padding-right: 40px;
+}
+.image-right {
+  width: "700px";
+  height: "600px";
+}
+.first {
+  display: flex;
+  justify-content: space-between;
+  padding: 130px 130px 50px 130px;
+}
+.second {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 130px 130px 130px;
+}
+.first span {
+  display: inline;
+}
+.first-sec {
+  display: flex;
+}
+.first-sec img {
+  padding-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+.con {
+  display: inline-block;
+}
+.con p {
+  width: 250px;
+}
+.third-sec {
+  background-image: url(./slider.jpg);
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  padding: 89px 0px;
+}
+/* .third-sec::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+} */
+.right-bar {
+  color: white;
+  padding: 30px 220px;
+  text-align-last: auto;
+}
+.video {
+  padding-left: 100px;
+}
+.right-bar button {
+  color: white;
+  padding: 20px 70px;
+  background-color: #fa471c;
+  border: none;
+  margin-top: 27px;
+}
+.number {
+  display: flex;
+  justify-content: space-around;
+  padding: 70px 150px;
+}
+.number h3 {
+  font-size: 80px;
+  font-size: 80px;
+  color: #fa471c;
+}
+.number p {
+  font-size: 30px;
+}
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+.sr-heading {
+  font-size: 50px;
+  color: black;
+  text-align: center;
+  padding: 10px 0px 30px 0px;
+}
+#sr {
+  background-color: #777;
+  color: white;
+  text-align: center;
+  margin-top: 350px;
+  padding: 20px 0px;
+}
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  header img {
+    width: 64%;
+    padding-left: 13px;
+    padding-top: 15px;
+  }
+  main {
+    background-size: auto;
+    height: 306px;
+  }
+  main h1 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 33px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    padding: 30px 20px 30px 20px;
+    align-items: center;
+    background-color: #f2f1f1;
+  }
+  .image-right img {
+    width: 400px;
+    padding-top: 10px;
+  }
+  nav ul li {
+    display: inline;
+
+    font-size: 16px;
+    padding: 0px 5px;
+
+    transition: 1s;
+  }
+  .first {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+    row-gap: 30px;
+  }
+  .second {
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 40px 0px;
+    row-gap: 30px;
+  }
+  .third-sec {
+    flex-direction: column;
+  }
+  .video {
+    padding: 0px;
+  }
+  .right-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .number {
+    flex-direction: column;
+
+    padding: 70px 70px;
+    text-align: center;
+    row-gap: 40px;
+  }
+}
