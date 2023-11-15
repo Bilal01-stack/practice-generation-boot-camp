@@ -1,12 +1,10 @@
 import { useState } from "react";
-
-const logedInUser = () => {
-  return false;
-};
+import logo from "../assets/img/image.png"
+import { Link } from "react-router-dom";
 
 const Title = () => (
   <div className="logo">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvw9_YpLBp84k98-MM2im5z6dpNfchjfUJLcQNiDb2rA&s" />
+    <img src={logo } alt ="logo" />
   </div>
 );
 const Header = () => {
@@ -16,9 +14,13 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home Upadte </li>
+          <Link to="/">Home</Link>
+          <Link to="/about">
           <li>About</li>
+          </Link>
+          <Link to="/contact">
           <li>Contact</li>
+          </Link>
         </ul>
       </div>
       {isLogedin ? (

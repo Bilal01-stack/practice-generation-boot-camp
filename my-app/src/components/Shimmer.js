@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function Shimmer() {
   return (
-    <h1>Shimmer</h1>
-  )
+    <div className="restaurants-lsit">
+      {Array(10)
+        .fill(" ")
+        .map((e,index) => (
+          <div className="shimmer-list" key={index}></div>
+        ))}
+    </div>
+  );
 }

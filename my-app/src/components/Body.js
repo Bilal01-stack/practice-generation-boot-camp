@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 //import { RestaurantList } from "../config";
 import Shimmer from "./Shimmer";
-const RestaurantCards = ({  text,link}) => {
+const RestaurantCards = ({ text, link }) => {
   return (
     <div className="card">
       {/* <img src={image} /> */}
@@ -14,7 +14,9 @@ const RestaurantCards = ({  text,link}) => {
 };
 
 function filterData(searchText, retaurants) {
-  return retaurants.filter((retaurant) => retaurant?.text?.toLowerCase()?.includes(searchText.toLowerCase()));
+  return retaurants.filter((retaurant) =>
+    retaurant?.text?.toLowerCase()?.includes(searchText.toLowerCase())
+  );
 }
 
 const Body = () => {
@@ -22,7 +24,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   useEffect(() => {
-    getRestaurants()
+    getRestaurants();
   }, []);
   async function getRestaurants() {
     const data = await fetch(
@@ -30,16 +32,17 @@ const Body = () => {
     );
     const json = await data.json();
     //console.log(json)
-    const newData = json?.data?.cards[7]?.card?.card?.brands
-    console.log(newData)
+    const newData = json?.data?.cards[7]?.card?.card?.brands;
+    console.log(newData);
     setAllRestaurants(json?.data?.cards[7]?.card?.card?.brands);
     setFilteredRestaurants(json?.data?.cards[7]?.card?.card?.brands);
-    
   }
-if(!allRestaurants) return null;
-if(filteredRestaurants?.length === 0 ) return <h1>Match your filter</h1>
+  // if (!allRestaurants) return null;
+  // if (filteredRestaurants?.length === 0) return <h1>Match your filter</h1>;
 
-  return allRestaurants.length === 0 ? <Shimmer/> : (
+  return allRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-containert">
         <input
