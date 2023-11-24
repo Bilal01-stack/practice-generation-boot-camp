@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../config";
 import Shimmer from "./Shimmer";
+import userContext from "../utils/UserContext";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
-// const dataAPi =()=>{
-//   return(
-//     <>
-//      <h2>{data.name}</h2>
-//     </>
-//   )
-// }
 export default function RestaurantMenu() {
+  const {user} = useContext(userContext)
   const params = useParams();
   const { id } = params;
   //we can also use this as well
   //const {id} = useParams();
 
-  // const [restaurant, setRestaurant] = useState({});
+  const [resLink, setResLink] = useState([null]);
   const [restaurantNames, setRestaurantNames] = useState([null]);
   const [image, setImage] = useState([null]);
   const [area, setArea] = useState([null]);
@@ -26,16 +23,6 @@ export default function RestaurantMenu() {
   useEffect(() => {
     getRestaurantInfo();
   }, []);
-
-  // async function getRestaurantInfo(){
-  //    const data = await fetch("https://www.swiggy.com/api/seo/getListing?lat=11.352407603698884&lng=75.87227602079383")
-  //    const json =await data.json();
-  //    console.log(json.data)
-  //    setRestaurant(json.data)
-
-  //    const result = setRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-  //     console.log(result)
-  // }
 
   async function getRestaurantInfo() {
     try {
@@ -49,7 +36,8 @@ export default function RestaurantMenu() {
         const cards = json.data.success.cards;
         const restaurants =
           cards[1].card.card.gridElements.infoWithStyle.restaurants;
-        console.log(restaurants);
+        //console.log(restaurants);
+        const menuDetail= restaurants.map((restaurant)=>restaurant.cta.link);
         const names = restaurants.map((restaurant) => restaurant.info.name);
         const imgs = restaurants.map(
           (restaurant) => restaurant.info.cloudinaryImageId
@@ -63,6 +51,7 @@ export default function RestaurantMenu() {
         const menu = restaurants.map((restaurant) => restaurant.info.cuisines);
         console.log(menu);
 
+        setResLink(menuDetail)
         setRestaurantNames(names);
         setImage(imgs);
         setArea(areaName);
@@ -75,27 +64,31 @@ export default function RestaurantMenu() {
       console.error("Error fetching data:", error);
     }
   }
-
- 
+const dispatch = useDispatch()
+ const handleAddItem = ()=>{
+  dispatch(addItem("Bringles"))
+ }
 
   return (!restaurantNames) ? <Shimmer /> : (
-    <>
+    
+    <div >
+      <div >
       <h1>Restaurant City: {id}</h1>
-      {/* {restaurantNames.map((name, index) => (
-        <h1 key={index}>{name}</h1>
-      ))}
-      {image.map((imgs, index) => (
-        <img key={index} src={IMG_CDN_URL+imgs} alt={`Restaurant ${index + 1}`} />
-      ))} */}
+      <button className="m-2 p-2 bg-green-400 300" onClick={()=>handleAddItem()}>Add Items</button>
+      </div>
+      <div className="flex flex-wrap">
       {restaurantNames.map((name, id) => (
-        <div key={id}>
-          <h1>Restaurant Name: {name}</h1>
+        <div className="w-56 p-2 m-4 shadow-lg bg-pink-50" key={id}>
+          <h1 className="font-bold text-2xl"> {name}</h1>
           <h1> Area: {area[id]}</h1>
           <h1> Location: {location[id]}</h1>
           <h1> Cusine: {cusine[id]}</h1>
           <img src={IMG_CDN_URL + image[id]} />
+          <h1 className="p-10 font-bold text-red-500">{user.name} {user.email}</h1>
         </div>
       ))}
-    </>
+      </div>
+      
+    </div>
   );
 }

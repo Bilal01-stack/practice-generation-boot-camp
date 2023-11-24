@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy,Suspense, useState } from "react";
 import ReactDOM from 'react-dom/client';
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -8,8 +8,24 @@ import Error from "./components/Error";
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import RestaurantMenu from "./components/RestaurantMenu";
+
+import Shimmer from "./components/Shimmer";
+//import Instamart from "./components/Instamart";
+import userContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+const Instamrt = lazy(()=> import("./components/Instamart"));
+const AboutUS = lazy(()=> import("./components/About"));
+
+
 const App = () => {
+  const [users, setUser]= useState({
+    name: "Bilal",
+    email: "bilal@gmial.com"
+  });
   return (
+    <Provider store={store}>
+    <userContext.Provider value={{user:users}}>
     <div className="contanier">
       <div className="header">
         <Header />
@@ -18,6 +34,8 @@ const App = () => {
       <Outlet />
       <Footer />
     </div>
+    </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -41,7 +59,11 @@ const appRouter = createBrowserRouter([
         element:<Body />
       },
       {
-        path:'restaurant/:id',
+        path: '/instamart',
+        element:<Suspense fallback={<Shimmer/>}><Instamrt /></Suspense>
+      },
+      {
+        path:'restaurant/',
         element: <RestaurantMenu />
       }
    ]
