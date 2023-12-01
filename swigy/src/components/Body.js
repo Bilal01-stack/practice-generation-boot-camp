@@ -27,7 +27,7 @@ async function callAPi(){
       const cards = json.data.success.cards;
       //console.log(cards)
       const restaurants = cards[1].card.card.gridElements.infoWithStyle.restaurants;
-      //console.log(restaurants)
+      console.log(restaurants)
       const replaceDummy = restaurants.map((res)=> {
       return {
         data: {
@@ -75,6 +75,7 @@ if(!allRestaurants) return null;
       </div>
 
       <div className="flex gap-x-4 gap-y-4 flex-wrap">
+      
         {filteredRestaurants.map((restaurant) => (
           <RestauantCard {...restaurant.data} key={restaurant.data.id} />
         ))}
