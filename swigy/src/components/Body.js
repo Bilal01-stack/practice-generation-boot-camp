@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestauantCard from "./Restaurant";
 //import { restaurantList } from "../constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 export default function Body() {
   const [search, setSearch] = useState('');
@@ -77,7 +78,9 @@ if(!allRestaurants) return null;
       <div className="flex gap-x-4 gap-y-4 flex-wrap">
       
         {filteredRestaurants.map((restaurant) => (
+           
           <RestauantCard {...restaurant.data} key={restaurant.data.id} />
+        
         ))}
       
       </div>
